@@ -2,8 +2,8 @@ package org.example;
 
 import Dragons.*;
 
-import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -15,9 +15,9 @@ public class Main {
 
         System.out.println("Please enter the name of the dragon: ");
         String name = scanner.nextLine();
-        System.out.println("Please enter the age of the dragon: ");
+        System.out.println(String.format("Please enter the age of the %s: ", name));
         int age = scanner.nextInt();
-        System.out.println("Please enter the weight of the dragon: ");
+        System.out.println(String.format("Please enter the weight of the %s: ", name));
         int weight = scanner.nextInt();
 
         Dragon dragon = new Dragon(name, age, weight);
@@ -25,6 +25,32 @@ public class Main {
         dataDragons.add(String.valueOf(dragon));
 
         System.out.println("Dragon added: " + dragon);
+
+        whatDragonDo(dragon);
+    }
+
+
+    static void whatDragonDo(Dragon dragon) {
+        Scanner scannerNew = new Scanner(System.in);
+        String dragonName = dragon.getName();
+
+        System.out.println(String.format("Please enter what should %s do? (say, fire, or press ENTER)", dragonName));
+        String action = scannerNew.nextLine();
+
+
+        if (Objects.equals(action, "say")) {
+
+            System.out.println(String.format("What should %s say?", dragonName));
+            String say = scannerNew.nextLine();
+
+            System.out.println(String.format("%s said: " + say, dragonName));
+        } else if (Objects.equals(action, "fire")){
+            System.out.println("imagine fire emoji");
+        } else {
+            System.out.println(String.format("%s did: \"nothing\"", dragonName));
+        }
+
+
     }
 
 
@@ -56,5 +82,6 @@ public class Main {
         for (String dragon : dataDragons) {
             System.out.println(dragon);
         }
+
     }
 }
