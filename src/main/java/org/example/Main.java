@@ -15,8 +15,10 @@ public class Main {
 
         System.out.println("Please enter the name of the dragon: ");
         String name = scanner.nextLine();
+
         System.out.println(String.format("Please enter the age of the %s: ", name));
         int age = scanner.nextInt();
+
         System.out.println(String.format("Please enter the weight of the %s: ", name));
         int weight = scanner.nextInt();
 
@@ -32,6 +34,7 @@ public class Main {
 
     static void whatDragonDo(Dragon dragon) {
         Scanner scannerNew = new Scanner(System.in);
+
         String dragonName = dragon.getName();
 
         System.out.println(String.format("Please enter what should %s do? (say, fire, or press ENTER)", dragonName));
@@ -44,19 +47,22 @@ public class Main {
             String say = scannerNew.nextLine();
 
             System.out.println(String.format("%s said: " + say, dragonName));
+
         } else if (Objects.equals(action, "fire")){
+
             System.out.println("imagine fire emoji");
+
         } else {
+
             System.out.println(String.format("%s did: \"nothing\"", dragonName));
         }
-
-
     }
 
 
     public static void main(String[] args) {
 
         Dragon dragon1 = new Dragon();
+
         System.out.println("Створено невідомго дракона");
 
         Dragon dragon2 = new Dragon();
@@ -68,7 +74,6 @@ public class Main {
 //        System.out.println(dragon2.toString());
 
         System.out.println("Створено повноцінного дракона з такими параметрами:");
-
         System.out.println("Dragon name: " + dragon2.getName());
         System.out.println("Dragon age: " + dragon2.getAge());
         System.out.println("Dragon weight: " + dragon2.getWeight());
