@@ -16,10 +16,10 @@ public class Main {
         System.out.println("Please enter the name of the dragon: ");
         String name = scanner.nextLine();
 
-        System.out.println(String.format("Please enter the age of the %s: ", name));
+        System.out.printf("Please enter the age of the %s: %n", name);
         int age = scanner.nextInt();
 
-        System.out.println(String.format("Please enter the weight of the %s: ", name));
+        System.out.printf("Please enter the weight of the %s: %n", name);
         int weight = scanner.nextInt();
 
         Dragon dragon = new Dragon(name, age, weight);
@@ -37,24 +37,24 @@ public class Main {
 
         String dragonName = dragon.getName();
 
-        System.out.println(String.format("Please enter what should %s do? (say, fire, or press ENTER)", dragonName));
+        System.out.printf("Please enter what should %s do? (say, fire, or press ENTER)%n", dragonName);
         String action = scannerNew.nextLine();
 
 
         if (Objects.equals(action, "say")) {
 
-            System.out.println(String.format("What should %s say?", dragonName));
+            System.out.printf("What should %s say?%n", dragonName);
             String say = scannerNew.nextLine();
 
-            System.out.println(String.format("%s said: " + say, dragonName));
+            System.out.printf("%s said: " + say + "%n", dragonName);
 
-        } else if (Objects.equals(action, "fire")){
+        } else if (Objects.equals(action, "fire")) {
 
             System.out.println("imagine fire emoji");
 
         } else {
 
-            System.out.println(String.format("%s did: \"nothing\"", dragonName));
+            System.out.printf("%s did: \"nothing\"%n", dragonName);
         }
     }
 
